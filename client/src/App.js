@@ -1,28 +1,23 @@
 import React from 'react';
 import './App.css';
-import RegistrationForm from './components/RegistrationForm/RegistrationForm';
-import Header from './components/Header/Header';
 import LoginForm from './components/LoginForm/LoginForm';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route
-} from "react-router-dom";
+import {Switch, Route} from 'react-router-dom';
+import RegistrationForm from './components/Router/mainRouter';
+import MainPage from './components/MainPage/MainPage';
+import TicketForm from './components/SubmitTicket/TicketForm';
+
 
 function App() {
   return (
-    <Router>
     <div className="App">
-      <Header />
-        <div className="container d-flex align-items-center flex-column">
-          <Switch>
-            <Route path="/" exact={true}>
-              <LoginForm />
-            </Route>
-          </Switch>
+     
+        <Switch>
+            <Route path = '/submitTicket' component={TicketForm}/>
+            <Route  exact path='/register' component={RegistrationForm}/>
+            <Route  exact path='/login' component={LoginForm} />
+            <Route exact path="/home" component={MainPage} />
+        </Switch>
        </div>
-   </div>
-  </Router>
   );
 }
 

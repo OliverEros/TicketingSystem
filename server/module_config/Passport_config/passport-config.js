@@ -1,7 +1,8 @@
 const LocalStrategy = require('passport-local').Strategy;
 const bcrypt = require('bcrypt');
+const { use } = require('../../routes/loginRouter');
 var User = require('../../schemas/userSchema')
-const { use } = require('passport');
+
 
 
 
@@ -9,33 +10,42 @@ const { use } = require('passport');
 
 
 function initPassport(passport) {
+    
     const authenticate =  async (username, password, done) =>{
-     const user = User.findOne({ username: username }, function (err, user) {
+     const user = await User.findOne({ username: username }, function (err, user) {
+    
       if(user == null){
-              console.log('No user');
               return done(null, false, {message : 'No user with this username'})
             }
             bcrypt.compare(password, user.password)
             .then((compared) =>{
               if(compared) {
-                console.log(user)
-                return done(null, user);
+                console.log('User found')
+                return done(null, user)
               } else {
-                console.log('INCORRECT')
                 return done(null, false, {message : 'Incorrect password'})
               }
             })
-            .catch( (e) => console.log(e))
-        });
-    }
-  ;
+            .catch( (e) => console.log(e + " failure"))
+        })
+    };
+
 
   
 
 
   passport.use(new LocalStrategy(authenticate));
-  passport.serializeUser((user, done) => {return done(null,user)});
-  passport.deserializeUser((id, done) => {return done(null, id)})
+
+  passport.serializeUser(async (user, done) => {  console.log('SERIALIZATION: ' + user._id); return done(null,user._id)});
+  
+  passport.deserializeUser((id, done) => {
+    User.findOne({_id : id}, function(err, user) {
+      return done(err,user);
+    })
+  })
+
+
+
 }
 
 module.exports = initPassport;

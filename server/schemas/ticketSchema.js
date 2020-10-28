@@ -1,10 +1,13 @@
 var mongoose = require('mongoose');
 
-var ticket = new mongoose.Schema({
+var ticketSchema = new mongoose.Schema(
+    {
+    title : 'String',
     createdBy : 'String',
-    createdOn : Date.now,
-    fromDepartment : 'String',
-    resolved : Boolean
-});
+    created : Date,
+    description : 'String',
+    department : 'String',
+    resolved : Boolean,
+    });
 
-module.exports = ticket; 
+module.exports = mongoose.model('Ticket', ticketSchema);

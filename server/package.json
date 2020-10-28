@@ -3,11 +3,15 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "server": "nodemon start",
+    "client": "cd ../client && npm start",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "dependencies": {
     "bcrypt": "^5.0.0",
     "cookie-parser": "~1.4.4",
+    "cookie-session": "^1.4.0",
     "cors": "^2.8.5",
     "debug": "~2.6.9",
     "dotenv": "^8.2.0",
@@ -25,6 +29,7 @@
     "passport-local": "^1.0.0"
   },
   "devDependencies": {
-    "body-parser": "^1.19.0"
+    "body-parser": "^1.19.0",
+    "concurrently": "^5.3.0"
   }
 }

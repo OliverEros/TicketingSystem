@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import axios from 'axios';
+import Header from '../Header/Header';
 
 
 function RegistrationForm(props){
@@ -26,25 +27,26 @@ function RegistrationForm(props){
             username : state.username,
             password : state.password
         }
-
-        console.log(payload)
-    //     axios.post("http://localhost:3000/register", payload)
-    //     .then((status) => {
-    //         if(status.status === 200) console.log("User has been added")
-    //     })
-    //     .catch((error) => console.log(error))
-    // }
+        axios.post("http://localhost:3000/register", payload)
+        .then((status) => {
+            if(status.status === 200) console.log("User has been added")
+        })
+        .catch((error) => console.log(error))
     }
+    
 
    return(
        //Observation : Keep all styling in one curly bracket,
        //otherwise the previous will be overwritten 
-       
+       <div>
+        <Header />
+       <div className="container d-flex align-items-center flex-column">
        <div class="card" style={{marginTop : 1 + 'em', padding : 1 + 'em'}}>
+       <h3>Register: </h3>
         <form class="form-horizontal justify-content-center" /**TODO **/ > 
             <div class="form-group">
             <label>Email:</label>
-            <input type="email" id="email" value={state.email} class="form-control" onChange={handleChange  } />
+            <input type="email" id="email" value={state.email} class="form-control" onChange={handleChange} />
             </div>
 
             <div class="form-group">
@@ -57,15 +59,15 @@ function RegistrationForm(props){
             <label>Password:</label>
             <input type="password" class="form-control" value={state.password} id="password" onChange={handleChange}/>
             </div>
-
-           
-
             <button class="btn btn-primary" onClick={handleSubmit}>Register</button>
         
         </form>
         </div>
-   )
-
+        </div>
+        </div>
+   );
 }
+
+
 
 export default RegistrationForm;
