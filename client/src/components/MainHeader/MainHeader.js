@@ -47,7 +47,7 @@ class MainHeader extends React.Component {
                 </ul>
                 <ul className="navbar-nav ml-auto " id="secondNav">
                 <li className="nav-item">
-                        <Link to="/Settings" className="link" id="signOut">Logout</Link>
+                        <Link to="/logout" className="link" id="signOut">Logout</Link>
                     </li>
                 </ul>
                 </div>

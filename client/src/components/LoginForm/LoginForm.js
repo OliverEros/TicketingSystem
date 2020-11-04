@@ -44,7 +44,7 @@ function LoginForm(props){
               await axios.post('http://localhost:3000/login', payLoad, {withCredentials : true})
                .then((response) => {
                     if(response.status === 200) {
-                        history.push('/home')
+                        history.push('/submitTicket')
                     }
                })
            } catch (error) {

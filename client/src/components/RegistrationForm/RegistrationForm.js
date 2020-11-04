@@ -11,7 +11,7 @@ function RegistrationForm(props){
     })
 
     const handleChange = (e) => {
-        const { id , value} = e.target   
+        const { id , value} = e.target  
         setState( prevState =>
         ({
             ...prevState,

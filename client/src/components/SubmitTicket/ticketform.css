@@ -1,1 +1,41 @@
-form input{ box-sizing: border-box; margin: auto; resize: vertical; display: inline-block;  vertical-align: middle; }
+.container{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background: b;
+    border: solid 1px;
+    
+    
+    
+}
+
+form {
+    width: 500px;
+    margin: 0 auto;
+}
+
+
+input{
+    display: block;
+    width: 100%;
+    margin-bottom: 5px;
+    word-break: break-all;
+    text-align: center;
+    
+}
+
+label {
+    display: inline-block;
+    margin-top: 5px;
+    margin-bottom: 0px;
+}
+
+textarea{
+    width: 100%;
+}
+
+button{
+    width: 100%;
+    background-color: #ffffff;
+   
+    margin-bottom: 2em;
+}
