@@ -1,21 +1,47 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+import axios from 'axios';
 
 //Components
 import MainHeader from '../MainHeader/MainHeader';
+import TicketContainer from '../DisplayTickets/TicketContainer'
+import FilterBar from '../FilterBar/FilterBar';
+
 
 class MainPage extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            username : '',
+            user : [],
+            tickets : [],
+            groups : [],
+            sortByStatus : false,
+            sortByGroup : false
+
         }
     }
+
+    componentDidMount() {
+        axios.get('http://localhost:3000/loadUserData', {withCredentials: true})
+        .then((userData) => {
+            this.setState({user : userData.data, 
+                        tickets : userData.data.tickets,
+                    groups : userData.data.joinedGroups})
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+    }
+    
+    
 
     render(){
         return(
             <div className = "MainPage">
                 <MainHeader />
-
+                <div className="row">
+                <FilterBar groups = {this.state.groups}/>
+                <TicketContainer />
+                </div>
             </div>
         );
     }

@@ -1,0 +1,21 @@
+
+html, body, .App{
+    height: 100vh;
+    position: relative;
+}
+
+.LandingPage{
+    border: 2px;
+
+}
+
+button{
+    text-align: center;
+    display: inline;
+    margin: auto;
+    max-width: 150px;
+}
+.registerContainer, .loginContainer {
+    margin-bottom: 10px;
+
+}

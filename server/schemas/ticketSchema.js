@@ -8,6 +8,9 @@ var ticketSchema = new mongoose.Schema(
     description : 'String',
     department : 'String',
     resolved : Boolean,
+    comments : [],
+    
+
     });
 
 module.exports = mongoose.model('Ticket', ticketSchema);

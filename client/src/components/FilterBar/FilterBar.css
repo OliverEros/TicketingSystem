@@ -1,0 +1,33 @@
+.col-sm-3{
+    max-width: 50% !important ;
+    padding: 10px;
+    
+}
+
+.card.filter-content{
+    margin-left: 15px;
+    min-width: 289px;
+}
+.card{
+    margin-left: 50px;
+}
+
+.card-body{
+    text-align: center;
+
+}
+
+button{
+   margin-top: 20px;
+}
+
+
+
+label{
+    margin-right: 5px;
+}
+
+option{
+    width: 20px;
+}
+

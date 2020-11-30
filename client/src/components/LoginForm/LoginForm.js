@@ -44,7 +44,7 @@ function LoginForm(props){
               await axios.post('http://localhost:3000/login', payLoad, {withCredentials : true})
                .then((response) => {
                     if(response.status === 200) {
-                        history.push('/submitTicket')
+                        history.push('/home')
                     }
                })
            } catch (error) {
@@ -62,7 +62,6 @@ function LoginForm(props){
         <div className="container d-flex align-items-center flex-column">
         <div className="card" style={{marginTop : 1 + 'em', padding : 1 + 'em'}}>
             <h3>Login: </h3>
-            <h3 style={{paddingBottomg: 1 + 'em'}}>{state.username}</h3>
         <form className="form-horizontal justify-content-center"> 
             <div className="form-group">
             <label>Username:</label>

@@ -21,6 +21,9 @@ var loginRouter = require('./routes/loginRouter');
 var homeRouter = require('./routes/homeRouter');
 var ticketRouter = require('./routes/ticketRouter');
 var loadTicketsRouter = require('./routes/loadTickets');
+var loadUserData = require('./routes/getUserData');
+var createGroup = require('./routes/createGroup');
+
 const flash = require('express-flash');
 
 var app = express();
@@ -48,6 +51,8 @@ app.use('/login',loginRouter);
 app.use('/home', homeRouter);
 app.use('/submitTicket', ticketRouter );
 app.use('/loadTickets', loadTicketsRouter);
+app.use('/loadUserData', loadUserData);
+app.use('/createGroup',createGroup)
 
 
 // catch 404 and forward to error handler

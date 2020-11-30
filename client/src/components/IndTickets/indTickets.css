@@ -1,0 +1,10 @@
+.ticket {
+    width: 300px;
+    height: 200px;
+    margin: 5px;
+
+
+}
+.ticket:hover {
+    transform: scale(1.05);
+}

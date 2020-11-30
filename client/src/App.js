@@ -7,6 +7,7 @@ import MainPage from './components/MainPage/MainPage';
 import TicketForm from './components/SubmitTicket/TicketForm';
 import TicketCards from './components/IndTickets/IndTickets';
 import TicketContainer from './components/DisplayTickets/TicketContainer';
+import LandingPage from './components/LandingPage/LandingPage';
 
 
 function App() {
@@ -14,15 +15,11 @@ function App() {
     <div className="App">
      
         <Switch>
+            <Route exact path = '/' component={LandingPage}/>
             <Route path = '/submitTicket' component={TicketForm}/>
             <Route  exact path='/register' component={RegistrationForm}/>
             <Route  exact path='/login' component={LoginForm} />
-            <Route exact path="/home" component={MainPage} />
-            <Route exact path="/tickets" render = {(props) => (<TicketCards user = 'Tom'
-                                                                            title = 'problem'
-                                                                            body = 'asdasd'
-                                                                            status = 'resolved'
-                                                                            {...props} />)} />
+            <Route exact path="/tickets" component={MainPage} />
             <Route exact path="/loadTickets" component = {TicketContainer} />                                           
         </Switch>
        </div>

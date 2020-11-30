@@ -1,6 +1,7 @@
 import React from 'react';
 import '../Header/Header.css';
 import {Link} from 'react-router-dom'
+import '/home/oliver/Ticketing System/client/src/index.css'
 
 
 

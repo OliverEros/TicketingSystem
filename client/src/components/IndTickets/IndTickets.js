@@ -1,4 +1,5 @@
 import React from 'react'
+import './indTickets.css'
 
 class TicketCards extends React.Component {
     constructor(props) {
@@ -8,7 +9,7 @@ class TicketCards extends React.Component {
     render() {
         return (
              
-                <div className = "card" style = {{width : '300px', minHeight : '200px',maxHeight : '200px', overflow : 'hidden', backgroundColor : this.ticketStatus(this.props.status), margin : '2px'}}>
+                <div className = "card ticket" style = {{backgroundColor : this.ticketStatus(this.props.status)}}>
                     <div className = "card-header">
                         <h5 className = "card-title">{this.props.title}</h5>
                     </div>
