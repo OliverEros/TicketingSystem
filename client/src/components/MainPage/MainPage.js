@@ -14,8 +14,9 @@ class MainPage extends React.Component {
             user : [],
             tickets : [],
             groups : [],
-            sortByStatus : false,
-            sortByGroup : false
+
+            whichTickets : ''
+           
 
         }
     }
@@ -31,6 +32,10 @@ class MainPage extends React.Component {
             console.log(err)
         })
     }
+
+    filter(f){
+        this.setState({whichTickets : f})
+    }
     
     
 
@@ -39,7 +44,7 @@ class MainPage extends React.Component {
             <div className = "MainPage">
                 <MainHeader />
                 <div className="row">
-                <FilterBar groups = {this.state.groups}/>
+                <FilterBar groups = {this.state.groups} />
                 <TicketContainer />
                 </div>
             </div>

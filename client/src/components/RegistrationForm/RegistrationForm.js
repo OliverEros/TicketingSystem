@@ -40,7 +40,7 @@ function RegistrationForm(props){
        //otherwise the previous will be overwritten 
        <div>
         <Header />
-       <div className="container d-flex align-items-center flex-column">
+       <div className="container-col-12 d-flex align-items-center flex-column">
        <div class="card" style={{marginTop : 1 + 'em', padding : 1 + 'em'}}>
        <h3>Register: </h3>
         <form class="form-horizontal justify-content-center" /**TODO **/ > 

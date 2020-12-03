@@ -9,7 +9,6 @@ router.get('/',isAuthenticated, function(req,res) {
         if(err){
             console.log('Internal error. User could not be found')
         } else{
-            console.log(doc)
             res.send(doc)
             
         }
@@ -17,12 +16,12 @@ router.get('/',isAuthenticated, function(req,res) {
 })
 
 
-
+// Middleware to check if the user is authenticated! 
 function isAuthenticated(req,res,next) {
     if(req.user) {
         next()
     } else {
-        res.redirect('/home')
+        res.redirect('/')
     }
 }
 

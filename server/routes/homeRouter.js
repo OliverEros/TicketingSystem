@@ -4,8 +4,8 @@ var router = express.Router();
 
 
 
-router.get('/', (req, res,next) => {
-    res.send(req.user);
+router.get('/', (req, res) => {
+    // res.send(req.user);
 });
 
 

@@ -8,6 +8,7 @@ import TicketForm from './components/SubmitTicket/TicketForm';
 import TicketCards from './components/IndTickets/IndTickets';
 import TicketContainer from './components/DisplayTickets/TicketContainer';
 import LandingPage from './components/LandingPage/LandingPage';
+// import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 
 
 function App() {

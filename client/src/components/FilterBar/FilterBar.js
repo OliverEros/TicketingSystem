@@ -8,15 +8,10 @@ class FilterBar extends React.Component {
 
         this.state = {
             userData : [],
-            byGroup : [],
+            byGroup : '',
             byDate : Boolean,
-            byStatus : {
-                pending : Boolean,
-                resolved : Boolean
-            },
-            //Variables used to identify the selected values from the dropdown menus
-            selectedGroup : "",
-            selectedStatus : ""
+            pending : Boolean,
+            resolved : Boolean,
         }
 
         this.getSelectedGroup = this.handleChange.bind(this)
@@ -30,16 +25,18 @@ class FilterBar extends React.Component {
     renderGroupOptions = (groups) => {
        let groupNames = groups.map(group => {
             return(
-            <option>{group.name}</option>
+            <option>{group}</option>
             )
         })
         return groupNames
     }
 
     handleChange = (event) => {
-        this.setState({[event.target.name] : event.target.value }, () => {
-            console.log(this.state.selectedGroup)
-        })
+        this.setState({[event.target.name] : event.target.value })
+    }
+
+    returnFilter(){
+
     }
     
     render(){
@@ -58,7 +55,6 @@ class FilterBar extends React.Component {
                                     <option>Select</option>
                                     {this.renderGroupOptions(this.props.groups)}
                                 </select>
-
                                 <div className="form-group">
                                     <label for="bystatus">Status</label>
                                     <select id="bystatus" value={this.state.selectedStatus} onChange={this.handleChange}>

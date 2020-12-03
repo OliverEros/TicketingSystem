@@ -24,6 +24,9 @@ var loadTicketsRouter = require('./routes/loadTickets');
 var loadUserData = require('./routes/getUserData');
 var createGroup = require('./routes/createGroup');
 
+//Used for react to authenticate user access
+var authReact = require('./routes/isAuthenticated');
+
 const flash = require('express-flash');
 
 var app = express();
@@ -52,7 +55,8 @@ app.use('/home', homeRouter);
 app.use('/submitTicket', ticketRouter );
 app.use('/loadTickets', loadTicketsRouter);
 app.use('/loadUserData', loadUserData);
-app.use('/createGroup',createGroup)
+app.use('/createGroup',createGroup);
+app.use('/auth4React', authReact );
 
 
 // catch 404 and forward to error handler

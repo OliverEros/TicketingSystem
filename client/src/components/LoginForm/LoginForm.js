@@ -59,7 +59,7 @@ function LoginForm(props){
     return(
         <div>
             <Header />
-        <div className="container d-flex align-items-center flex-column">
+        <div className="container-col-12 d-flex align-items-center flex-column ">
         <div className="card" style={{marginTop : 1 + 'em', padding : 1 + 'em'}}>
             <h3>Login: </h3>
         <form className="form-horizontal justify-content-center"> 
