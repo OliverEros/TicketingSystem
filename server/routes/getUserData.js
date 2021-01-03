@@ -3,7 +3,7 @@ const router = express.Router();
 
 const userData = require('../schemas/userSchema')
 
-router.get('/',isAuthenticated, function(req,res) {
+router.get('/', function(req,res) {
     console.log(req.user.username)
     userData.findOne({username : req.user.username}, function(err, doc) {
         if(err){
