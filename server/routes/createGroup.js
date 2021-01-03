@@ -1,19 +1,22 @@
 const express = require('express');
 const router = express.Router();
 const groupSchema = require('../schemas/groupSchema');
-const userSchema = require('../schemas/userSchema');
+
+
 
 
 //Check if name is taken
-router.post('/',isAdmin,  function(req,res){
+router.post('/',function(req,res){
     const groupDetails = {
         name : req.body.groupName,
-        admin : req.body.admin,
+        admin : [req.user],
         members : [],
         tickets : [],
         nmbrOfPending : 0,
         nmbrOfResolved : 0
     }
+
+    console.log(req.body.user)
 
     groupSchema.findOne({name : groupDetails.name})
     .then((group) => {
@@ -21,8 +24,8 @@ router.post('/',isAdmin,  function(req,res){
             console.log('Name for the group is already taken!')
             res.send('Name for the group is already taken!')
         } else {
-            new userSchema(groupDetails).save()
-        }
+            new groupSchema(groupDetails).save()
+            }
     })
     .catch((err) => {
         console.log(err)
@@ -30,11 +33,5 @@ router.post('/',isAdmin,  function(req,res){
 
 })
 
-function isAdmin(req,res,next){
-    if(req.user.isAdmin){
-        next()
-    }else{
-        console.log('You must be an admin to create a group!')
-    }
-}
+
 module.exports = router
