@@ -1,16 +1,47 @@
-button{
-    max-width: 100px;
+#allTickets,#pendingTickets,#resolvedTickets{
+    display: inline-block;
+    vertical-align: top;
+    max-width: 150px;
+    float: left;
+    margin-right: 2px;
+    
+}   
+.tabs{
+    padding-top: 1em;
 }
 
-.ticketcontainer {
-    max-width: 1360px;
-    padding: 0px 50px 0px 50px;
+.col{
+    padding-right: 0 !important;
 }
 
-.buttoncontainer{
+body > #root > div {
+    height: 100vh;
+  }
+
+#ulTickets{
+      border: 1px solid;
+      width: 50% ;
+      margin: auto;
+  }
+
+#liTickets{
+    width: 100%;
     
 }
 
+.tabs{
+    max-width: 50% !important;
+    margin: auto;
+}
+
+ul.pagination{
+    align-items: center;
+    margin-top: 1em;
+}
+
+.paginationContainer{
+    position: sticky;
+}
 
 
 
