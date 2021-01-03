@@ -1,50 +1,47 @@
 const express = require('express');
+const router = express.Router()
 
-const TicketSchemas = require('../schemas/ticketSchema')
-const UserSchemas = require('../schemas/userSchema');
-const router = require('./ticketRouter');
+const TicketSchema = require('../schemas/ticketSchema');
+/**
+ * Returns a collection of documents (tickets) for a given group
+ * Calculates the number of pages for pagination
+ */
+router.get('/', (req, res) => {
+    //Copy the page number before we delete the 'atPage' attr
+    let atPage = req.query.atPage; //Current page
+    console.log(atPage)
 
+    console.log(req.query)
+    //Delete attribute since it is not needed for Mongo search
+    let query = req.query
+    delete query['atPage']
 
-//Only find tickets that belong to the same group as the user
+    // Create variables
+    let numberOfPages; // //Variable used to calculate the number of pages
+    let skip; //Number of tickets to skip
 
-
-router.get('/', isLoggedIn, async function (req, res) {
-    // Find groups that the user is joined
-    let groupsJoined = await UserSchemas.find({ username: req.user.username })
-        .then((foundUser) => {
-            if(foundUser[0].joinedGroups){
-            //Return joined groups in the form of an array
-            return [foundUser[0].joinedGroups]
-            }
-        })
-        .catch((err) => { console.log(err) })
-
-    // If the user is not joined to any group, no tickets will be displayed. JUMP TO THE ELSE STATEMENT
-    if (groupsJoined.length > 0) {
-        //Return all tickets
-        let ticketsToReturn = await TicketSchemas.find()
-            //
-            .then((allTickets) => {
-                let toReturn = []
-                //Compare tickets and the groups
-                //If user is joined to the group, return 
-                groupsJoined.forEach(group => {
-                    allTickets.forEach(ticket => {
-                        if (group.name == ticket.department) {
-                            toReturn.push(ticket)
-                        }
-                    })
-                });
-                res.send(toReturn)
-            })
-            .catch((err) => {
-                console.log(err)
-            })
+    //If statement that calculates the number of tickets to skip
+    //if it is the first page, do not skip
+    //else skip [number of current page - 1] and only load 10 tickets (limit)
+    if (atPage == 1) {
+        skip = 0
     } else {
-        //User is not joined to any group, therefore we return an empty array
-        // which React will handle with the error message "There are no tickets to show!"
-        res.send([])
+        skip = (atPage - 1) * 10
     }
+
+    TicketSchema.countDocuments(query)
+        .then(num => {
+            //Round up (gives us the number of pages for pagination)
+            // Divide all available tickets, then divie it by 10 (10 tickets per page)
+            numberOfPages = Math.ceil((num / 10))
+        })
+        .then(() => TicketSchema.find(query).skip(skip).limit(10))
+        .then(tickets => {
+            res.send({ data: tickets, pages: numberOfPages })
+        })
+        .catch(err => {
+            console.log
+        })
 
 })
 
