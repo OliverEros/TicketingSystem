@@ -1,14 +1,20 @@
 import React from 'react';
 import './App.css';
+
+
 import LoginForm from './components/LoginForm/LoginForm';
 import {Switch, Route} from 'react-router-dom';
 import RegistrationForm from './components/Router/mainRouter';
-import MainPage from './components/MainPage/MainPage';
+import HomePage from './components/HomePage/HomePage';
 import TicketForm from './components/SubmitTicket/TicketForm';
-import TicketCards from './components/IndTickets/IndTickets';
-import TicketContainer from './components/DisplayTickets/TicketContainer';
 import LandingPage from './components/LandingPage/LandingPage';
-// import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
+import GroupUserList from './components/GroupUserList/GroupUserList';
+import CreateGroupForm from './components/CreateGroupForm/CreateGroupForm';
+import TicketAnalysis from './components/TicketAnalysis/TicketAnalysis';
+import SettingsPage from './components/SettingsPage/SettingsPage';
+import MainPage from './components/MainPage/MainPage';
+
+
 
 
 function App() {
@@ -16,12 +22,17 @@ function App() {
     <div className="App">
      
         <Switch>
-            <Route exact path = '/' component={LandingPage}/>
+            <Route exact path = '/' component={LandingPage}/>	
             <Route path = '/submitTicket' component={TicketForm}/>
             <Route  exact path='/register' component={RegistrationForm}/>
             <Route  exact path='/login' component={LoginForm} />
-            <Route exact path="/tickets" component={MainPage} />
-            <Route exact path="/loadTickets" component = {TicketContainer} />                                           
+            <Route exact path="/home" component={HomePage} />
+            <Route exact path="/loadTickets" component = {MainPage} />
+            <Route exact path="/createGroup" component = {CreateGroupForm} />   
+            <Route exact path="/listmembers" component = {GroupUserList} />    
+            <Route exact path="/graph" component = {TicketAnalysis} />  
+            <Route exact path='/settings' component = {SettingsPage} />  
+            
         </Switch>
        </div>
   );
