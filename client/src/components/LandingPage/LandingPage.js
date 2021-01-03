@@ -19,14 +19,18 @@ function LandingPage(){
 
 
     return(
-    <div className="LandingPage">
-        <div className="loginContainer">
-            <button value="log" onClick = {onClick}>Login</button>
+        <div>
+        <div className="container-col-12 ">
+        <div className='box'>
+            <button value="log" onClick = {onClick} >Login</button>
+            <button value="reg"  onClick={onClick} >Register</button>
+            
         </div>
-        <div className = "registerContainer">
-            <button value="reg"  onClick={onClick}>Register</button>
         </div>
-    </div>
+        </div>
+        
+        
+
     )
 
 }
