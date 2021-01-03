@@ -1,0 +1,12 @@
+.graphBox{  
+    max-width: 70%;
+    height: 500px;
+    margin: 0 auto;   
+}
+
+._container{
+    height: 500px;
+    width: 70%;
+    border: 1px !important;
+    margin: 0 auto;
+}
