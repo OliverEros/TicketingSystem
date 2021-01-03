@@ -2,7 +2,8 @@ const express = require('express');
 const { session } = require('passport');
 const router = express.Router();
 const TicketSchema = require('../schemas/ticketSchema');
-const User = require('../schemas/userSchema')
+const User = require('../schemas/userSchema');
+const Group = require('../schemas/groupSchema');
 
 
 
@@ -17,7 +18,7 @@ router.post('/', isLoggedIn, function (req, res) {
         createdBy: req.user.username,
         department: req.body.department,
         title: req.body.title,
-        createdOn: Date.now(),
+        created: Date.now(),
         description: req.body.description,
         resolved: false
     }
@@ -29,12 +30,23 @@ router.post('/', isLoggedIn, function (req, res) {
             //SAVING TICKET TO THE USER
             User.updateOne({ username: ticketDetails.createdBy }, { $push: { tickets: ticketDetails } }, function (err) {
                 if (err) {
-                    console.log('')
+                    console.log(err)
                 }
-                
+
             })
+            // Update group => add ticket, increment # of pending tickets by 1
+            .then(() => {
+                Group.updateOne({name : ticketDetails.department}, {$push : {tickets : ticketDetails}, $inc : {nmbrOfPending : 1}}, function(err){
+                    if(err){
+                        console.log(err)
+                    }
+                })
+            })
+            .catch((err) => {console.log(err)})
         }
     });
+
+
 })
 
 //Checks if user is logged in
