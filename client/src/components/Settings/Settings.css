@@ -1,0 +1,69 @@
+.Settings{
+    width: inherit;
+    font-family: 'Lato', sans-serif;
+   
+
+
+}
+
+.submit,.cancel{
+    font-size: 10px;
+    display: block;
+    margin: 1px;
+    float: left;
+    
+}
+
+label{
+  
+    text-align: left;
+}
+
+
+h4{
+    text-align: left;
+}
+
+input{
+    margin-bottom: 2e;
+    margin:  auto;
+    max-width: inherit;
+}
+
+li{
+    margin-bottom: 5px;
+    width: inherit;
+    text-align: left;
+
+
+}
+
+.labelContainer, .userSettings{
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.labelContainer{
+    margin-top: 2em;
+}
+
+
+
+
+
+
+
+hr{
+    width: 500px;
+    border-width: 1px;
+    margin: auto;
+    display: block;
+}
+
+.leave{
+    position: absolute;
+    left: 90%;
+    font-size: 15px;
+ 
+ 
+}
