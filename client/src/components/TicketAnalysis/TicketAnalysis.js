@@ -62,7 +62,7 @@ class TicketAnalysis extends React.Component{
                     datasets : this.state.dataset,
                 },
                 options : {
-                 
+                    
 
 
                     scales : {
@@ -74,8 +74,13 @@ class TicketAnalysis extends React.Component{
                             }
                         }],
                         xAxes : [{
+                            gridLines:{
+                              
+                            },
                             ticks: {
                                 labelOffset: false,
+                                stepSize: 1,
+                                fixedStepSize: 1,
                             
                             }
                             

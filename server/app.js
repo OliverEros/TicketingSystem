@@ -14,6 +14,8 @@ const initMongo = require('./mongodb/mongo');
 initPassport(passport);
 
 
+
+
 //Setting up routes
 var indexRouter = require('./routes/indexRouter');
 var registerRouter = require('./routes/registerRouter') ;
@@ -25,6 +27,8 @@ var loadUserData = require('./routes/getUserData');
 var createGroup = require('./routes/createGroup');
 var isAuthenticated = require('./routes/isAuthenticated')
 var getCharData = require('./routes/getChartData');
+var logout = require('./routes/logout');
+var forgotPassword = require('./routes/forgottenPassword')
 
 //Used for react to authenticate user access
 var authReact = require('./routes/isAuthenticated');
@@ -61,6 +65,9 @@ app.use('/createGroup',createGroup);
 app.use('/auth4React', authReact );
 app.use('/isAuth', isAuthenticated);
 app.use('/getChartData', getCharData);
+app.use('/logout', logout);
+app.use('/forgotPassword', forgotPassword);
+
 
 
 // catch 404 and forward to error handler

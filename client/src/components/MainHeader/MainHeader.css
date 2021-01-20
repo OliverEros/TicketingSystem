@@ -2,13 +2,15 @@
     color: azure;
     padding-right: 2em;
     overflow: hidden;
+    
 }
-
 .navbar{
    
-    max-width: 100%;
     margin-bottom: 1em;
     overflow: hidden;
-    margin: 0 !important;
+    
 }
+
+html {overflow-y: scroll;}
+
 

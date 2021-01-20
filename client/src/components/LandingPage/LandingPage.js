@@ -19,11 +19,13 @@ function LandingPage(){
 
 
     return(
-        <div>
+        <div className='jumbotron vertical-center'> 
         <div className="container-col-12 ">
         <div className='box'>
-            <button value="log" onClick = {onClick} >Login</button>
-            <button value="reg"  onClick={onClick} >Register</button>
+            <div id='buttonContainer'>
+            <button id='loginBttn' value="log" onClick = {onClick} >Login</button>
+            <button id='registerBttn' value="reg"  onClick={onClick} >Register</button>
+            </div>
             
         </div>
         </div>

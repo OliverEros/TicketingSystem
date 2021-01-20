@@ -4,8 +4,16 @@
     max-width: 150px;
     float: left;
     margin-right: 2px;
-    
-}   
+    border-width: 100% !important;
+    border-radius: 0px;
+}  
+
+
+
+.TicketContainer {
+    font-family: 'Lato', sans-serif;
+
+}
 .tabs{
     padding-top: 1em;
 }
@@ -19,7 +27,6 @@ body > #root > div {
   }
 
 #ulTickets{
-      border: 1px solid;
       width: 50% ;
       margin: auto;
   }
@@ -32,6 +39,9 @@ body > #root > div {
 .tabs{
     max-width: 50% !important;
     margin: auto;
+    border-bottom: solid #007bff;
+    padding-left: 0px !important;
+    
 }
 
 ul.pagination{

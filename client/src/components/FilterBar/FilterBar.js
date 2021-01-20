@@ -42,7 +42,7 @@ class FilterBar extends React.Component {
     render(){
         return(
 
-            <div className = "col-sm-3 mb-4 ">
+            <div >
                 <div className="card filter-content">
                     <div className="card-title">
                         <h4>Filter</h4>

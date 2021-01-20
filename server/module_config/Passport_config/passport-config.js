@@ -1,6 +1,5 @@
 const LocalStrategy = require('passport-local').Strategy;
 const bcrypt = require('bcrypt');
-const { use } = require('../../routes/loginRouter');
 var User = require('../../schemas/userSchema')
 
 
@@ -12,7 +11,7 @@ var User = require('../../schemas/userSchema')
 function initPassport(passport) {
     
     const authenticate =  async (username, password, done) =>{
-     const user = await User.findOne({ username: username }, function (err, user) {
+     await User.findOne({ username: username }, function (err, user) {
     
       if(user == null){
               return done(null, false, {message : 'No user with this username'})

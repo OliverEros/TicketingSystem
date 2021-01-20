@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import Header from '../Header/Header';
 //For redirecting
@@ -27,6 +27,18 @@ function LoginForm(props){
             [id] : value
         }))
     } 
+
+
+    useEffect(() => {
+        // If the user is already logged in, redirect to /home  
+        axios.get('http://localhost:3000/login',{withCredentials : true})
+        .then((respond) => {
+            if(respond.data.isLoggedIn == true){
+               
+            }
+        })
+        .catch(err => console.log(err))
+    })
 
     //For the login button. The variables "username" and "password"
     //are loaded into the const "payload", which then will get submitted to the backend

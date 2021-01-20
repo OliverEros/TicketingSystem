@@ -1,60 +1,61 @@
 .Settings{
-    width: inherit;
     font-family: 'Lato', sans-serif;
-   
-
-
+    max-width: inherit;
 }
-
-.submit,.cancel{
-    font-size: 10px;
-    display: block;
+.submit,.cancel,#submitNewPassword{
+    font-size: 20px;
+    background-color:#007bff;
+    font:'Lato', sans-serif;    
+    color: white;
+    border-radius: 5px;
+    border: none;
     margin: 1px;
-    float: left;
-    
+    max-width: 100px;
+    display: inline;
+    margin-bottom: 2em;
 }
+
+#submitNewPassword{
+    margin-top: 1em;
+}
+
+#changePassword{
+    margin-bottom: 1em;
+}
+
+#changePassword{
+    width: 100%;
+}
+
 
 label{
-  
     text-align: left;
 }
-
 
 h4{
     text-align: left;
+    max-width: inherit;
 }
 
-input{
-    margin-bottom: 2e;
-    margin:  auto;
-    max-width: inherit;
+form{
+    max-width: 500px;
+    margin: auto;
 }
 
 li{
     margin-bottom: 5px;
-    width: inherit;
+    max-width: 100%;
     text-align: left;
-
-
 }
-
-.labelContainer, .userSettings{
-    max-width: 500px;
-    margin: 0 auto;
-}
-
 .labelContainer{
     margin-top: 2em;
+    max-width: 500px;
+    margin: auto;
 }
-
-
-
-
-
 
 
 hr{
-    width: 500px;
+   
     border-width: 1px;
     margin: auto;
     display: block;
@@ -64,6 +65,6 @@ hr{
     position: absolute;
     left: 90%;
     font-size: 15px;
- 
- 
 }
+
+

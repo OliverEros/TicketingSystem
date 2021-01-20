@@ -53,7 +53,6 @@ class TicketContainer extends React.Component {
 
     componentDidMount() {
         this.fetchTickets(this.ALL)
-
     }
 
     /**
@@ -64,7 +63,7 @@ class TicketContainer extends React.Component {
      */
     returnTickets() {
         if (this.state.tickets.length == 0) {
-            return (<h1>No tickets to load</h1>)
+            return (<h5>No tickets to load</h5>)
         } else {
             return (this.state.tickets.map(ticket => {
                 let status;
@@ -106,7 +105,6 @@ class TicketContainer extends React.Component {
 
     render() {
         return (
-
             <div className='TicketContainer'>
                 <div className='row'>
                     <div className='tabs col-sm-12'>

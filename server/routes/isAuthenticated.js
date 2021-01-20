@@ -2,11 +2,11 @@ const express = require('express')
 const router = express.Router()
 
 
-router.get('/', function(req,res,next){
+router.get('/', function(req,res){
     if(req.user){
-        res.sendStatus(200)
+        res.send({success : true})
     } else{
-        res.sendStatus(401)
+        res.send({success: false})
     }
 })
 

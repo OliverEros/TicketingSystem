@@ -1,4 +1,5 @@
 import React from 'react';
+import {useHistory} from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import './MainHeader.css';
@@ -11,6 +12,14 @@ class MainHeader extends React.Component {
         this.state = {
             user: []
         };
+       
+    }
+    
+    //TODO 
+    logout(){
+        axios.get('http://localhost:3000/logout',{withCredentials : true})
+        
+
     }
 
 
@@ -25,8 +34,8 @@ class MainHeader extends React.Component {
 
     render() {
         return (
-            <div>
-            <nav className="navbar navbar-expand-lg navbar-dark bg-primary ">
+            <div className='MainHeader row'>
+            <nav className="navbar navbar-expand-xl navbar-dark bg-primary col-lg-12 col-md-12">
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
                     <span className="navbar-toggler-icon"></span>
                 </button>
@@ -42,13 +51,13 @@ class MainHeader extends React.Component {
                         </li>
                         {/* Settings */}
                         <li className="nav-item">
-                            <Link to="/Settings" className="link">Settings</Link>
+                            <Link to="/settings" className="link">Settings</Link>
                         </li>
 
                     </ul>
                     <ul className="navbar-nav ml-auto " id="secondNav">
                         <li className="nav-item">
-                            <Link to="/logout" className="link" id="signOut">Logout</Link>
+                            <Link to="/logout" className="link" id="signOut" onClick={this.logout()}>Logout</Link>
                         </li>
                     </ul>
                 </div>

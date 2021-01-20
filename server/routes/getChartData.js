@@ -3,7 +3,7 @@ const router = express.Router();
 
 
 
-const groupSchema = require('../schemas/groupSchema');
+const ticketSchema = require('../schemas/ticketSchema')
 
 /**
  * Function that sends sorted data to the front-end to be displayed using Graph.js
@@ -16,13 +16,14 @@ router.get('/', function (req, res) {
     const dataToReturn = []
 
     // Find desired group using the groupname
-    groupSchema.findOne({ name: 'sd' }, function (err, doc) {
+    ticketSchema.find({ department: 'sd' }, function (err, doc) {
         if (err) {
             console.log(err)
         } else if (!doc) {
             console.log('Group could not be found!')
         } else {
-            doc.tickets.map(ticket => {
+            console.log(doc)
+            doc.map(ticket => {
                 //Create a set to hold dates and to avoid repeating elements
                 labels.add(_date = getDate(ticket.created))
                 
@@ -41,7 +42,7 @@ router.get('/', function (req, res) {
                 //Get index in order to access object for manipulation
                 _index = dataToReturn.indexOf(_result)
 
-                doc.tickets.forEach(_ticket_date => {
+                doc.forEach(_ticket_date => {
                     if (_date == getDate(_ticket_date.createdOn)) {
                         if (_ticket_date.resolved) {
                             dataToReturn[_index]['resolved'] += 1;
