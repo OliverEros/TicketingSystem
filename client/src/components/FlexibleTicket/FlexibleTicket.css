@@ -1,0 +1,23 @@
+.ticketDiv{
+    background-color: #e5e5e5;
+    padding: 40px;
+    border-radius: 10px;
+}
+
+.closeButton{
+    display: inline;
+    border-radius: none;
+}
+
+#close{
+    float: right;
+    width: 30px;
+    height: 30px;
+}
+
+input{
+    border-radius: 15px;
+}
+#submit{
+    margin: auto;
+}
